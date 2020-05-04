@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{Suspense} from 'react';
+import {Switch, Route, Redirect} from 'react-router-dom';
+import './assets/css/index.css';
+import './assets/css/tailwind.css';
+import Spinner from "./UI/Spinner/Spinner";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const Welcome = React.lazy(() =>{
+    return import ('./containers/Welcome/Welcome')
+});
+
+const Layout = React.lazy(() => {
+    return import ('./hoc/Layout/Layout')
+});
+
+const Register = React.lazy(() => {
+    return import ('./containers/Register/Register')
+});
+
+const Login = React.lazy(()  => {
+    return import  ('./containers/Login/Login')
+});
+
+const Chat = React.lazy(() => {
+    return import ('./containers/Chat/Chat');
+});
+
+const App = () => {
+  let routes = (
+    <Switch>
+      <Route path="/" exact component={Welcome} />
+      <Route path="/register" exact component={Register} />
+      <Route path="/login" exact component={Login} />
+      <Route path="/chat" exact component={Chat} />
+      <Redirect to="/" />
+    </Switch>
   );
-}
+  return (
+          <Suspense fallback={<Spinner/>}>
+            <Layout>
+                 {routes}
+             </Layout>
+          </Suspense>
+  );
+};
 
 export default App;
