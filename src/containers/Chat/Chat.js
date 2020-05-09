@@ -15,6 +15,9 @@ const Chat = () => {
                 <h2 className='font-bold text-gray-900 text-2xl border-b-4 border-indigo-700 mx-auto pb-2 shadow-xl'>Conversations</h2>
                    <Conversations/>
             </div>
+            <div className='pl-0 duration-75 ease-in-out transition-all'>
+
+            </div>
             <div className='w-2/3 h-full mt-auto'>
                 <div className='w-full'>
                     <div className='overflow-y-auto h-72 bg-transparent mx-3 mt-16'>

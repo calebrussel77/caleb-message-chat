@@ -16,7 +16,8 @@ const CurrentProfilInfo = () => {
               <div className='text-center'>
                  <div className='inline-block'>
                      <div className='flex items-start text-center w-full'>
-                         <img src={Location} alt="location" className='block pr-2 inline-block'/> <p className='text-gray-600'>Douala, Cameroun</p>
+                         <img src={Location} alt="location" className='block pr-2 inline-block'/>
+                         <p className='text-gray-600'>Douala, Cameroun</p>
                      </div>
                      <div className='flex items-center my-2 text-center w-full'>
                          <img src={Phone} alt="phone" className='block pr-2 inline-block'/> <p className='text-gray-600'>+ 0005282682</p>
